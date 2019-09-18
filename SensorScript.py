@@ -21,7 +21,7 @@ ip = [l for l in ([ip for ip in socket.gethostbyname_ex(socket.gethostname())[2]
 hostname = socket.gethostname()
 hostname = hostname.split("-")
 name = hostname[0]
-zone = hostname[1]
+zone = int(hostname[1])
 url = "http://infotavle.itd-skp.sde.dk/TH_API/ClimateSensor_Api/api/climateSensor/create.php"
 pin = 4
 lastCheck = time.time()
@@ -34,7 +34,7 @@ try:
             initialCheck = False
             h, t = DHT.read_retry(sensor, pin)
             print(f"Temperature: {t}*C, Humidity: {h}%")
-            r = requests.post(url, json={"ipaddress": ip,"zone": zone, "name": name, "updated": str(datetime.datetime.now()),
+            r = requests.post(url, json={"ipaddress": ip, "zone": zone, "name": name, "updated": str(datetime.datetime.now()),
                                          "temperature": t, "humidity": h})
             print(r.status_code)
 except (KeyboardInterrupt, SystemExit):
