@@ -45,4 +45,3 @@ except (KeyboardInterrupt, SystemExit):  # makes it so the pi doesn't restart at
     raise
 except:  # restarts the raspberry pi on all other exceptions
     os.system('sudo reboot')
-    print("yeet")
