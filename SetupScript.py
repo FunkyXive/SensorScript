@@ -4,22 +4,22 @@ if os.path.isfile("SensorScript.py"):  # checks if the setup script is running o
     os.system(
         "sudo wget -N https://raw.githubusercontent.com/FunkyXive/SensorScript/master/SensorScript.py")  # if yes, we get the newest version from github to stay up to date
 elif os.path.isfile(
-        "SensorScriptDualSensor"):  # checks if the setup script is running on an already setup pi with two sensors
+        "SensorScriptDualSensor.py"):  # checks if the setup script is running on an already setup pi with two sensors
     os.system(
-        "sudo wget .N https://raw.githubusercontent.com/FunkyXive/SensorScript/master/SensorScriptDualSensor.py")  # if yes, we get the newest version from github to stay up to date
+        "sudo wget -N https://raw.githubusercontent.com/FunkyXive/SensorScript/master/SensorScriptDualSensor.py")  # if yes, we get the newest version from github to stay up to date
 else:
     amountOfSensors = input(
         "Enter the amount of sensors on your raspberryPi")  # at this point, there is no recognised sensorscripts running on the PI so we ask how many sensors is running on the pi
     if amountOfSensors == "1":  # if one we get the program made for one
         with open("/etc/profile", "a+") as f:
-            if "python3 /home/pi/SetupScript" not in f:
+            if "python3 /home/pi/SetupScript.py" not in f:
                 f.write("python3 /home/pi/SetupScript.py")
             if "python3 /home/pi/SensorScript.py" not in f:
                 f.write("python3 /home/pi/SensorScript.py")
         os.system("wget -N https://raw.githubusercontent.com/FunkyXive/SensorScript/master/SensorScript.py")
     elif amountOfSensors == "2":  # if 2 we get the one made for 2
         with open("/etc/profile", "a+") as f:
-            if "python3 /home/pi/SetupScript" not in f:
+            if "python3 /home/pi/SetupScript.py" not in f:
                 f.writelines("python3 /home/pi/SetupScript.py")
             if "python3 /home/pi/SensorScript.py" not in f:
                 f.writelines("python3 /home/pi/SensorScriptDualSensor.py")
