@@ -56,9 +56,6 @@ try:
                                           "temperature": bt,
                                           "humidity": bh})  # posts the data from our back sensor as a json object to our server via the api
             print("fr: ", fr.status_code, ", br: ", br.status_code)  # prints the status code from our http requests, 201 for success
-            print(f"zone: {zoneFront}, Name: {'ServerRoomFront'}, ipaddress: {ip}, updated: {str(datetime.datetime.now())}, h: {fh}, t: {ft}")
-            print(f"zone: {zoneBack}, Name: {'ServerRoomBack'}, ipaddress: {ip}, updated: {str(datetime.datetime.now())}, h: {bh}, t: {fh}")
-
 except (KeyboardInterrupt, SystemExit):
     raise
 except:
