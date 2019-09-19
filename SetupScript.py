@@ -12,14 +12,29 @@ else:
         "Enter the amount of sensors on your raspberryPi")  # at this point, there is no recognised sensorscripts running on the PI so we ask how many sensors is running on the pi
     if amountOfSensors == "1":  # if one we get the program made for one
         os.system("sudo apt install python3-pip")
-        print("yoyoyoyoyoyoyoyoyoyoyoyoyoyoyoyoyo")
         os.system("sudo pip3 install Adafruit_DHT")
-        with open("/etc/profile", "a+") as f:
+        with open("/etc/profile") as f:
             if "python3 /home/pi/SetupScript.py" not in f:
-                f.write("python3 /home/pi/SetupScript.py")
+                with open("/etc/profile", "a+") as f1:
+                    f1.writelines("python3 /home/pi/SetupScript.py")
+        with open("/etc/profile") as f:
             if "python3 /home/pi/SensorScript.py" not in f:
-                f.write("python3 /home/pi/SensorScript.py")
+                with open("/etc/profile", "a+") as f1:
+                    f1.writelines("python3 /home/pi/SensorScript.py")
         os.system("wget -N https://raw.githubusercontent.com/FunkyXive/SensorScript/master/SensorScript.py")
+        print("wait........")
+        time.sleep(120)
+        print(".")
+        time.sleep(120)
+        print("..")
+        time.sleep(120)
+        print("...")
+        time.sleep(120)
+        print("Setup Complete!")
+        time.sleep(120)
+        print("Restarting...")
+        time.sleep(120)
+        os.system("sudo reboot")
     elif amountOfSensors == "2":  # if 2 we get the one made for 2
         os.system("sudo apt install python3-pip")
         os.system("sudo pip3 install Adafruit_DHT")
@@ -29,6 +44,34 @@ else:
             if "python3 /home/pi/SensorScript.py" not in f:
                 f.writelines("python3 /home/pi/SensorScriptDualSensor.py")
         os.system("wget -N https://raw.githubusercontent.com/FunkyXive/SensorScript/master/SensorScriptDualSensor.py")
+        print("wait........")
+        time.sleep(120)
+        print(".")
+        time.sleep(120)
+        print("..")
+        time.sleep(120)
+        print("...")
+        time.sleep(120)
+        print("Setup Complete!")
+        time.sleep(120)
+        print("Restarting...")
+        time.sleep(120)
+        os.system("sudo reboot")
     else:
         print(
             "sorry, that amount of sensors is not yet supported in the current scripts, look in the other scripts for inspiration for your own script.")
+print("wait........")
+time.sleep(120)
+print(".")
+time.sleep(120)
+print("..")
+time.sleep(120)
+print("...")
+time.sleep(120)
+print("Setup Complete!")
+time.sleep(120)
+print("Restarting...")
+time.sleep(120)
+os.system("sudo reboot")
+
+
