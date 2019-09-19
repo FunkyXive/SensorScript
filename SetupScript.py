@@ -20,9 +20,9 @@ else:
     elif amountOfSensors == "2":  # if 2 we get the one made for 2
         with open("/etc/profile", "a+") as f:
             if "python3 /home/pi/SetupScript" not in f:
-                f.write("python3 /home/pi/SetupScript")
+                f.writelines("python3 /home/pi/SetupScript")
             if "python3 /home/pi/SensorScript.py" not in f:
-                f.write("python3 /home/pi/SensorScriptDualSensor")
+                f.writelines("python3 /home/pi/SensorScriptDualSensor")
         os.system("wget .N https://raw.githubusercontent.com/FunkyXive/SensorScript/master/SensorScriptDualSensor.py")
     else:
         print(
