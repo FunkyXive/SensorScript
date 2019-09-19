@@ -31,4 +31,4 @@ else:
         os.system("wget -N https://raw.githubusercontent.com/FunkyXive/SensorScript/master/SensorScriptDualSensor.py")
     else:
         print(
-            "sorry, that amount of sensors is not yet supported in the current scripts, look in the other scripts for inspiration for your own script")
+            "sorry, that amount of sensors is not yet supported in the current scripts, look in the other scripts for inspiration for your own script.")
