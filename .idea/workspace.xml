@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b2497ca7-7cbc-4dfb-91a6-8f6c5b152b83" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SetupScript.py" beforeDir="false" afterPath="$PROJECT_DIR$/SetupScript.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -140,6 +141,7 @@
     <MESSAGE value="added a script to setup the main script" />
     <MESSAGE value="added a script to setup the main scripts" />
     <MESSAGE value="updated the setup script" />
-    <option name="LAST_COMMIT_MESSAGE" value="updated the setup script" />
+    <MESSAGE value="more updates to the setup script" />
+    <option name="LAST_COMMIT_MESSAGE" value="more updates to the setup script" />
   </component>
 </project>
