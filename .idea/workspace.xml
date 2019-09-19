@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b2497ca7-7cbc-4dfb-91a6-8f6c5b152b83" name="Default Changelist" comment="" />
+    <list default="true" id="b2497ca7-7cbc-4dfb-91a6-8f6c5b152b83" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SetupScript.py" beforeDir="false" afterPath="$PROJECT_DIR$/SetupScript.py" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -136,6 +139,7 @@
     <MESSAGE value="added a few things" />
     <MESSAGE value="updated code" />
     <MESSAGE value="added a script to setup the main script" />
-    <option name="LAST_COMMIT_MESSAGE" value="added a script to setup the main script" />
+    <MESSAGE value="added a script to setup the main scripts" />
+    <option name="LAST_COMMIT_MESSAGE" value="added a script to setup the main scripts" />
   </component>
 </project>
