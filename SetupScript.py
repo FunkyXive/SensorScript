@@ -11,6 +11,8 @@ else:
     amountOfSensors = input(
         "Enter the amount of sensors on your raspberryPi")  # at this point, there is no recognised sensorscripts running on the PI so we ask how many sensors is running on the pi
     if amountOfSensors == "1":  # if one we get the program made for one
+        os.system("sudo apt get python3-pip")
+        os.system("sudo pip3 install Adafruit_DHT")
         with open("/etc/profile", "a+") as f:
             if "python3 /home/pi/SetupScript.py" not in f:
                 f.write("python3 /home/pi/SetupScript.py")
@@ -18,6 +20,8 @@ else:
                 f.write("python3 /home/pi/SensorScript.py")
         os.system("wget -N https://raw.githubusercontent.com/FunkyXive/SensorScript/master/SensorScript.py")
     elif amountOfSensors == "2":  # if 2 we get the one made for 2
+        os.system("sudo apt get python3-pip")
+        os.system("sudo pip3 install Adafruit_DHT")
         with open("/etc/profile", "a+") as f:
             if "python3 /home/pi/SetupScript.py" not in f:
                 f.writelines("python3 /home/pi/SetupScript.py")
