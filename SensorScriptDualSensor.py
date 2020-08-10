@@ -42,7 +42,7 @@ try:
             print(
                 f"Front temperature: {ft}*C, Front humidity: {fh}%, time sent: {datetime.datetime.now()}")  # prints the data from the front sensor in our cmdline
             print(
-                f"Back temperature: {bt}*C, Front humidity: {bh}%, time sent: {datetime.datetime.now()}")  # prints the data fromt the back sensor in our cmdline
+                f"Back temperature: {bt}*C, Back humidity: {bh}%, time sent: {datetime.datetime.now()}")  # prints the data fromt the back sensor in our cmdline
             fr = requests.post(url, json={"zone": zoneFront,
                                           "name": "ServerRoomFront",
                                           "ipaddress": ip,

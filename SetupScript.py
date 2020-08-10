@@ -11,17 +11,17 @@ else:
     amountOfSensors = input(
         "Enter the amount of sensors on your raspberryPi")  # at this point, there is no recognised sensorscripts running on the PI so we ask how many sensors is running on the pi
     if amountOfSensors == "1":  # if one we get the program made for one
-        os.system("sudo apt install python3-pip")
-        os.system("sudo pip3 install Adafruit_DHT")
-        with open("/etc/profile") as f:
-            if "python3 /home/pi/SetupScript.py" not in f:
-                with open("/etc/profile", "a+") as f1:
-                    f1.writelines("python3 /home/pi/SetupScript.py \n")
-        with open("/etc/profile") as f:
+        os.system("sudo apt install python3-pip") #installs the pip package manager for python3
+        os.system("sudo pip3 install Adafruit_DHT") #installs the library for using the dht22 sensor using pip
+        with open("/etc/profile") as f: #opens the file /etc/profile, this file does multiple things, we just need it to add files run on startup
+            if "python3 /home/pi/SetupScript.py" not in f:  #checks if the setupscript is alreadu in the file
+                with open("/etc/profile", "a+") as f1: #opens the file at the end of the file
+                    f1.writelines("python3 /home/pi/SetupScript.py \n") #if the SetupScript isn't in the file, it adds the SetupScript to the startup running scripts
+        with open("/etc/profile") as f: #the same for the sensor script, we add both so it automatically get's the newest version from github when the pi starts up
             if "python3 /home/pi/SensorScript.py" not in f:
                 with open("/etc/profile", "a+") as f1:
                     f1.writelines("python3 /home/pi/SensorScript.py \n")
-        os.system("wget -N https://raw.githubusercontent.com/FunkyXive/SensorScript/master/SensorScript.py")
+        os.system("wget -N https://raw.githubusercontent.com/FunkyXive/SensorScript/master/SensorScript.py") #get's the sensorscript from github and saves it in the location this script is run
         print("wait........")
         time.sleep(2)
         print(".")
