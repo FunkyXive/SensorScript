@@ -10,9 +10,27 @@ elif os.path.isfile(
 else:
     amountOfSensors = input(
         "Enter the amount of sensors on your raspberryPi")  # at this point, there is no recognised sensorscripts running on the PI so we ask how many sensors is running on the pi
+    building = input("Enter the number of the building the sensor will be in")
+    zone = input("Enter the zone number the sensor will be in")
     if amountOfSensors == "1":  # if one we get the program made for one
         os.system("sudo apt install python3-pip") #installs the pip package manager for python3
         os.system("sudo pip3 install Adafruit_DHT") #installs the library for using the dht22 sensor using pip
+
+        with open("/etc/hostname", "w") as f:
+            f.writelines(f"mu{building}-{zone}")
+        with open("/etc/network/interfaces", "a+") as f:
+            f.writelines("auto wlan0")
+            f.writelines("iface wlan0 inet dhcp")
+            f.writelines("                wpa-ssid SKPWIFI")
+            f.writelines("                wpa-psk  SKPWire1!")
+        os.system("sudo dhclient wlan0")
+
+        with open("etc/systemd/system/getty@tty1.service.d/autologin.conf") as f:
+            f.writelines("[service]")
+            f.writelines("ExecStart=")
+            f.writelines("ExecStart=-/sbin/agetty --autologin pi --noclear %I $TERM")
+
+        os.system("sudo timedatectl set-timezone Europe/Copenhagen")
         with open("/etc/profile") as f: #opens the file /etc/profile, this file does multiple things, we just need it to add files run on startup
             if "python3 /home/pi/SetupScript.py" not in f:  #checks if the setupscript is alreadu in the file
                 with open("/etc/profile", "a+") as f1: #opens the file at the end of the file
