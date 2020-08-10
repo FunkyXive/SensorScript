@@ -29,7 +29,7 @@ else:
             f.writelines("                wpa-psk  SKPWire1!")
         os.system("sudo dhclient wlan0")
 
-        with open("etc/systemd/system/getty@tty1.service.d/autologin.conf") as f:
+        with open("etc/systemd/system/getty@tty1.service.d/autologin.conf", "x") as f:
             f.writelines("[service]")
             f.writelines("ExecStart=")
             f.writelines("ExecStart=-/sbin/agetty --autologin pi --noclear %I $TERM")
