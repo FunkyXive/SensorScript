@@ -1,8 +1,10 @@
 # SensorScript
 **Setup**
+
 To setup SensorScript on a Raspberry PI you need to do a couple of things on your Raspberry PI first. The Setup Guide is based on a Raspberry PI Zero W with the lightest Raspbian installation.
 
 **Setting up Raspberry PI**
+
 You need to do a couple of things to configure the Raspberry PI
 
  1. Open config:`sudo raspi-config`
@@ -14,6 +16,7 @@ You need to do a couple of things to configure the Raspberry PI
  7. Setup is finished.
 
 **Running SetupScript.py**
+
 To prepare the Raspberry PI for running as a temperature sensor you need to run SetupScript.py. The setup script determines which sensor script needs to run on the Raspberry PI. It also installs the needed python modules. To run the setup script you need to:
 
  1. Navigate to /home/pi: `cd /home/pi`
@@ -23,4 +26,5 @@ To prepare the Raspberry PI for running as a temperature sensor you need to run 
  5. Your Raspberry PI is now ready to be used as a temperature sensor.
 
 **Rewriting sensor scripts for different uses**
+
 You are welcome to change the sensor scripts to fit your needs. The code is commented to ease the revision of sensor scripts
