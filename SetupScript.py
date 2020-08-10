@@ -31,6 +31,10 @@ else:
             f.writelines("ExecStart=-/sbin/agetty --autologin pi --noclear %I $TERM")
 
         os.system("sudo timedatectl set-timezone Europe/Copenhagen")
+
+        os.system("sudo systemctl enable ssh")
+        os.system("sudo systemctl start ssh")
+
         with open("/etc/profile") as f: #opens the file /etc/profile, this file does multiple things, we just need it to add files run on startup
             if "python3 /home/pi/SetupScript.py" not in f:  #checks if the setupscript is alreadu in the file
                 with open("/etc/profile", "a+") as f1: #opens the file at the end of the file

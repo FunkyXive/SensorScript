@@ -19,10 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b2497ca7-7cbc-4dfb-91a6-8f6c5b152b83" name="Default Changelist" comment="&#10;updating readme.md">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sensorscripts.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sensorscripts.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="b2497ca7-7cbc-4dfb-91a6-8f6c5b152b83" name="Default Changelist" comment="updated the SetupScript.py to be more comprehensive">
       <change beforePath="$PROJECT_DIR$/SetupScript.py" beforeDir="false" afterPath="$PROJECT_DIR$/SetupScript.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -168,7 +165,14 @@
       <option name="project" value="LOCAL" />
       <updated>1597042979353</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="updated the SetupScript.py to be more comprehensive">
+      <created>1597056212628</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1597056212628</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -192,16 +196,17 @@
     <MESSAGE value="updated the setup script" />
     <MESSAGE value="more updates to the setup script" />
     <MESSAGE value="&#10;updating readme.md" />
-    <option name="LAST_COMMIT_MESSAGE" value="&#10;updating readme.md" />
+    <MESSAGE value="updated the SetupScript.py to be more comprehensive" />
+    <option name="LAST_COMMIT_MESSAGE" value="updated the SetupScript.py to be more comprehensive" />
   </component>
   <component name="WindowStateProjectService">
     <state x="1815" y="235" width="1022" height="737" key="SettingsEditor" timestamp="1597041440494">
       <screen x="1366" y="0" width="1920" height="1200" />
     </state>
     <state x="1815" y="235" width="1022" height="737" key="SettingsEditor/46.27.1320.741/1366.0.1920.1200@1366.0.1920.1200" timestamp="1597041440494" />
-    <state x="1921" y="332" width="800" height="543" key="Vcs.Push.Dialog.v2" timestamp="1597042982213">
+    <state x="1921" y="332" width="800" height="543" key="Vcs.Push.Dialog.v2" timestamp="1597056217560">
       <screen x="1366" y="0" width="1920" height="1200" />
     </state>
-    <state x="1921" y="332" width="800" height="543" key="Vcs.Push.Dialog.v2/46.27.1320.741/1366.0.1920.1200@1366.0.1920.1200" timestamp="1597042982213" />
+    <state x="1921" y="332" width="800" height="543" key="Vcs.Push.Dialog.v2/46.27.1320.741/1366.0.1920.1200@1366.0.1920.1200" timestamp="1597056217560" />
   </component>
 </project>
