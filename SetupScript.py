@@ -13,7 +13,11 @@ else:
     building = input("Enter the number of the building the sensor will be in")
     zone = input("Enter the zone number the sensor will be in")
     if amountOfSensors == "1":  # if one we get the program made for one
-        os.system("sudo apt install python3-pip") #installs the pip package manager for python3
+        os.system("sudo apt update")
+        os.system("sudo apt upgrade -y")
+        os.system("sudo apt update")
+
+        os.system("sudo apt install python3-pip -y") #installs the pip package manager for python3
         os.system("sudo pip3 install Adafruit_DHT") #installs the library for using the dht22 sensor using pip
 
         with open("/etc/hostname", "w") as f:
