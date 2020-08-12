@@ -29,10 +29,14 @@ else:
             f.writelines("                wpa-psk  SKPWire1!")
         os.system("sudo dhclient wlan0")
 
-        with open("etc/systemd/system/getty@tty1.service.d/autologin.conf", "x") as f:
-            f.writelines("[service]")
-            f.writelines("ExecStart=")
-            f.writelines("ExecStart=-/sbin/agetty --autologin pi --noclear %I $TERM")
+        os.system("systemctl set-default multi-user.target")
+        os.system("ln -fs /lib/systemd/system/getty@.service /etc/systemd/system/getty.target.wants/getty@tty1.service")
+        os.system("cat > /etc/systemd/system/getty@tty1.service.d/autologin.conf << EOF")
+        os.system("[Service]")
+        os.system("ExecStart=")
+        os.system("ExecStart=-/sbin/agetty --autologin $USER --noclear %I $TERM")
+        os.system("EOF")
+
 
         os.system("sudo timedatectl set-timezone Europe/Copenhagen")
 
