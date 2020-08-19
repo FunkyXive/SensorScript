@@ -20,7 +20,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b2497ca7-7cbc-4dfb-91a6-8f6c5b152b83" name="Default Changelist" comment="more updates to the setup script">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/readme.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -53,7 +52,7 @@
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$USER_HOME$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RunManager" selected="Python.lul">
@@ -123,8 +122,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Python.lul" />
-        <item itemvalue="Python.GetHostName" />
         <item itemvalue="Python.GetIp" />
+        <item itemvalue="Python.GetHostName" />
+        <item itemvalue="Python.lul" />
+        <item itemvalue="Python.GetHostName" />
       </list>
     </recent_temporary>
   </component>

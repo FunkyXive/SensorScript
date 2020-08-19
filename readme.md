@@ -28,3 +28,5 @@ To prepare the Raspberry PI for running as a temperature sensor you need to run 
 **Rewriting sensor scripts for different uses**
 
 You are welcome to change the sensor scripts to fit your needs. The code is commented to ease the revision of sensor scripts
+
+vi bruger standard user samt standard kodeord til raspberry pi's
