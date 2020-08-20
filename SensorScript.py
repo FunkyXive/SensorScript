@@ -28,19 +28,26 @@ pin = 4  # the io pin on our raspberry pi that is connected to the data pin on t
 lastCheck = time.time()  # set's the initial last check time
 initialCheck = True  # sets initial-check to true so we get first reading immediately
 sensor = DHT.DHT22  # defines which sensor of the supported sensors that we are using
+temperatureDeviance = 0.5  # variable controlling how much the temperature needs to change each check
+lastHum, lastTemp = 1, 1 #random base value for last check that makes the sensor always send when started up
 try:  # try except so we restart the raspberry pi if the program crashes
     while True:  # main data loop
-        if time.time() - lastCheck >= 300 or initialCheck:  # checks if 5 minutes has passed since last check or if this is the first check since we started the program
-            lastCheck = time.time()  # updates the lastCheck variable to the new time
-            initialCheck = False  # sets initialCheck to false so we don't spam the server
-            h, t = DHT.read_retry(sensor,
-                                  pin)  # reads humidity and temperature from sensor, retries up to 15 times if it fails
+        # if time.time() - lastCheck >= 300 or initialCheck:  # checks if 5 minutes has passed since last check or if this is the first check since we started the program
+        lastCheck = time.time()  # updates the lastCheck variable to the new time
+        initialCheck = False  # sets initialCheck to false so we don't spam the server
+        h, t = DHT.read_retry(sensor,
+                              pin)  # reads humidity and temperature from sensor, retries up to 15 times if it fails
+        if abs(t - lastTemp) > temperatureDeviance:  # checks if the difference between the current temp and last temp is more than the set deviance threshold, if it is then it sends data, if not it prints the temp difference
             print(f"Temperature: {t}*C, Humidity: {h}%")  # prints the data for testing and monitoring purposes
             r = requests.post(url, json={"ipaddress": ip, "zone": zone, "name": name,
                                          "updated": str(datetime.datetime.now()),
                                          "temperature": t,
                                          "humidity": h})  # posting the data as json to our api via the url
             print(r.status_code)  # prints the status code of the post request 201 for success
+        else:
+            print(abs(t - lastTemp))#prints the deviance
+        lastHum, lastTemp = h, t
+
 except (KeyboardInterrupt, SystemExit):  # makes it so the pi doesn't restart at the exceptions specified
     raise
 except:  # restarts the raspberry pi on all other exceptions
