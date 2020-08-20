@@ -19,7 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b2497ca7-7cbc-4dfb-91a6-8f6c5b152b83" name="Default Changelist" comment="more updates to the setup script">
+    <list default="true" id="b2497ca7-7cbc-4dfb-91a6-8f6c5b152b83" name="Default Changelist" comment="updated the sensorscript to only send data when there's a change in temperature">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SensorScript.py" beforeDir="false" afterPath="$PROJECT_DIR$/SensorScript.py" afterDir="false" />
     </list>
@@ -156,7 +156,14 @@
       <option name="project" value="LOCAL" />
       <updated>1597834365473</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="updated the sensorscript to only send data when there's a change in temperature">
+      <created>1597906510495</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1597906510495</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -179,16 +186,17 @@
     <MESSAGE value="added a script to setup the main scripts" />
     <MESSAGE value="updated the setup script" />
     <MESSAGE value="more updates to the setup script" />
-    <option name="LAST_COMMIT_MESSAGE" value="more updates to the setup script" />
+    <MESSAGE value="updated the sensorscript to only send data when there's a change in temperature" />
+    <option name="LAST_COMMIT_MESSAGE" value="updated the sensorscript to only send data when there's a change in temperature" />
   </component>
   <component name="WindowStateProjectService">
     <state x="1815" y="235" width="1022" height="737" key="SettingsEditor" timestamp="1597041440494">
       <screen x="1366" y="0" width="1920" height="1200" />
     </state>
     <state x="1815" y="235" width="1022" height="737" key="SettingsEditor/46.27.1320.741/1366.0.1920.1200@1366.0.1920.1200" timestamp="1597041440494" />
-    <state x="1921" y="332" width="800" height="543" key="Vcs.Push.Dialog.v2" timestamp="1597834371121">
+    <state x="1921" y="332" width="800" height="543" key="Vcs.Push.Dialog.v2" timestamp="1597906512609">
       <screen x="1366" y="0" width="1920" height="1200" />
     </state>
-    <state x="1921" y="332" width="800" height="543" key="Vcs.Push.Dialog.v2/46.27.1320.741/1366.0.1920.1200@1366.0.1920.1200" timestamp="1597834371121" />
+    <state x="1921" y="332" width="800" height="543" key="Vcs.Push.Dialog.v2/46.27.1320.741/1366.0.1920.1200@1366.0.1920.1200" timestamp="1597906512609" />
   </component>
 </project>
