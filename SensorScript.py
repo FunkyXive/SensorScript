@@ -44,9 +44,9 @@ try:  # try except so we restart the raspberry pi if the program crashes
                                          "temperature": t,
                                          "humidity": h})  # posting the data as json to our api via the url
             print(r.status_code)  # prints the status code of the post request 201 for success
+            lastHum, lastTemp = h, t
         else:
             print(abs(t - lastTemp), f"temp, lastTemp: {t}{lastTemp}")#prints the deviance
-        lastHum, lastTemp = h, t
 
 except (KeyboardInterrupt, SystemExit):  # makes it so the pi doesn't restart at the exceptions specified
     raise
