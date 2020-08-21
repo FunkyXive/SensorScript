@@ -46,7 +46,7 @@ try:  # try except so we restart the raspberry pi if the program crashes
             print(r.status_code)  # prints the status code of the post request 201 for success
             lastHum, lastTemp = h, t
         else:
-            print(abs(t - lastTemp), f"temp, lastTemp: {t}{lastTemp}")#prints the deviance
+            print(abs(t - lastTemp), f"temp, lastTemp: {t}, {lastTemp}")#prints the deviance
 
 except (KeyboardInterrupt, SystemExit):  # makes it so the pi doesn't restart at the exceptions specified
     raise
