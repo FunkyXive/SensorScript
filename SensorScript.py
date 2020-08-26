@@ -26,7 +26,6 @@ zone = int(hostname[1])  # stores the second entry in the list as an int
 url = "http://infotavle.itd-skp.sde.dk/TH_API/ClimateSensor_Api/api/climateSensor/create.php"  # url of our api
 pin = 4  # the io pin on our raspberry pi that is connected to the data pin on the DHT22
 lastCheck = time.time()  # set's the initial last check time
-currentTime = datetime.datetime.now() #gets the current time
 sensorStartHour = 11 #the hour to start sensors
 sensorEndHour = 18 #the end for the sensors
 initialCheck = True  # sets initial-check to true so we get first reading immediately
@@ -35,6 +34,7 @@ temperatureDeviance = 0.5  # variable controlling how much the temperature needs
 lastHum, lastTemp = 1, 1 #random base value for last check that makes the sensor always send when started up
 try:  # try except so we restart the raspberry pi if the program crashes
     while True:  # main data loop
+        currentTime = datetime.datetime.now()  # gets the current time
         hour = currentTime.hour  # gets the current hour 0-23
         if sensorStartHour <= hour <= sensorEndHour: #checks if current hour is between start hour and end hour, if true, run hour script, if not don't
             if time.time() - lastCheck >= 60 or initialCheck:  # checks if 1(60seconds) minutes has passed since last check or if this is the first check since we started the program
