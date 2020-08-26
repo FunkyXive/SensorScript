@@ -28,7 +28,7 @@ pin = 4  # the io pin on our raspberry pi that is connected to the data pin on t
 lastCheck = time.time()  # set's the initial last check time
 currentTime = datetime.datetime.now() #gets the current time
 hour = currentTime.hour #gets the current hour 0-23
-sensorStartHour = 6 #the hour to start sensors
+sensorStartHour = 9 #the hour to start sensors
 sensorEndHour = 18 #the end for the sensors
 initialCheck = True  # sets initial-check to true so we get first reading immediately
 sensor = DHT.DHT22  # defines which sensor of the supported sensors that we are using
@@ -49,12 +49,12 @@ try:  # try except so we restart the raspberry pi if the program crashes
                                                  "temperature": t,
                                                  "humidity": h})  # posting the data as json to our api via the url
                     print(r.status_code)  # prints the status code of the post request 201 for success
-                    lastHum, lastTemp = h, t
+                    lastHum, lastTemp = h, t #sets the last check temp and hum
                     print("posted")
                 else:
                     print(abs(t - lastTemp), f"temp, lastTemp: {t}, {lastTemp}")#prints the deviance
         else:
-            initialCheck = True
+            initialCheck = True #sets initial check to true so we post data on first check in the specified time frame
 
 except (KeyboardInterrupt, SystemExit):  # makes it so the pi doesn't restart at the exceptions specified
     raise
