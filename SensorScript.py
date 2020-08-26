@@ -54,7 +54,7 @@ try:  # try except so we restart the raspberry pi if the program crashes
                 else:
                     print(abs(t - lastTemp), f"temp, lastTemp: {t}, {lastTemp}")#prints the deviance
         else:
-            print("not posting", initialCheck)
+            print(f"not posting{sensorStartHour}{hour}{sensorEndHour}")
             initialCheck = True #sets initial check to true so we post data on first check in the specified time frame
             time.sleep(10)
 except (KeyboardInterrupt, SystemExit):  # makes it so the pi doesn't restart at the exceptions specified
