@@ -56,6 +56,7 @@ try:  # try except so we restart the raspberry pi if the program crashes
         else:
             print("not posting", initialCheck)
             initialCheck = True #sets initial check to true so we post data on first check in the specified time frame
+            time.sleep(10)
 except (KeyboardInterrupt, SystemExit):  # makes it so the pi doesn't restart at the exceptions specified
     raise
 except:  # restarts the raspberry pi on all other exceptions
