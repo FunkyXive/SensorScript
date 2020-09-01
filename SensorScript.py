@@ -35,9 +35,9 @@ lastHum, lastTemp = 1, 1  # random base value for last check that makes the sens
 
 
 def staticCheck(currentTime, checkHour, checkMinute):
-    h, t = DHT.read_retry(sensor,
-                          pin)  # reads humidity and temperature from sensor, retries up to 15 times if it fails
     if currentTime.hour == checkHour and currentTime.minute == checkMinute:
+        h, t = DHT.read_retry(sensor,
+                              pin)  # reads humidity and temperature from sensor, retries up to 15 times if it fails
         print(f"Temperature: {t}*C, Humidity: {h}%")  # prints the data for testing and monitoring purposes
         r = requests.post(url, json={"ipaddress": ip, "zone": zone, "name": name,
                                      "updated": str(datetime.datetime.now()),
