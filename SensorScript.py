@@ -34,8 +34,8 @@ temperatureDeviance = 0.5  # variable controlling how much the temperature needs
 lastHum, lastTemp = 1, 1  # random base value for last check that makes the sensor always send when started up
 
 
-def staticCheck(currentTime, checkHour, checkMinute):
-    if currentTime.hour == checkHour and currentTime.minute == checkMinute:
+def staticCheck(currentTime, checkHour, checkMinute): #function for preset static checks at the same time every day
+    if currentTime.hour == checkHour and currentTime.minute == checkMinute: #checks if we are at the entered hour and minute
         h, t = DHT.read_retry(sensor,
                               pin)  # reads humidity and temperature from sensor, retries up to 15 times if it fails
         print(f"Temperature: {t}*C, Humidity: {h}%")  # prints the data for testing and monitoring purposes
@@ -44,14 +44,14 @@ def staticCheck(currentTime, checkHour, checkMinute):
                                      "temperature": t,
                                      "humidity": h})  # posting the data as json to our api via the url
         print(r.status_code)  # prints the status code of the post request 201 for success
-        print(f"posted static {checkHour}")
-        if r.status_code == 201:
-            time.sleep(61)
+        print(f"posted static {checkHour}")#prints to the pi that this specific post was static and the current hour
+        if r.status_code == 201: #checks if the post request was succesful
+            time.sleep(300)#if yes, sleeps for 1 minute and 1 second as to not post the same data twice in one static check call
 try:  # try except so we restart the raspberry pi if the program crashes
     while True:  # main data loop
         currentTime = datetime.datetime.now()  # gets the current time
         hour = currentTime.hour  # gets the current hour 0-23
-        staticCheck(currentTime, 8, 0)
+        staticCheck(currentTime, 8, 0) #static check at hour 8 minute 0 aka 8 am
         staticCheck(currentTime, 12, 0)
         staticCheck(currentTime, 15, 0)
         if sensorStartHour <= hour <= sensorEndHour:  # checks if current hour is between start hour and end hour, if true, run hour script, if not don't
