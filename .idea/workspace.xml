@@ -19,12 +19,15 @@
     <select>
       <path>
         <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
       </path>
     </select>
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b2497ca7-7cbc-4dfb-91a6-8f6c5b152b83" name="Default Changelist" comment="updated static check function">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sensorscripts.iml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SensorScript.py" beforeDir="false" afterPath="$PROJECT_DIR$/SensorScript.py" afterDir="false" />
     </list>
@@ -58,8 +61,8 @@
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../sde-datacenter-leasing-system" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="org.jetbrains.plugins.github.ui.GithubSettingsConfigurable" />
   </component>
   <component name="RunManager" selected="Python.lul">
     <configuration name="GetHostName" type="PythonConfigurationType" factoryName="Python" temporary="true">
@@ -294,7 +297,14 @@
       <option name="project" value="LOCAL" />
       <updated>1598952087179</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="updated static check function">
+      <created>1599037587749</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1599037587749</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -324,17 +334,18 @@
     <option name="LAST_COMMIT_MESSAGE" value="updated static check function" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="2109" y="358" width="424" height="491" key="FileChooserDialogImpl" timestamp="1598438322921">
+    <state x="2109" y="358" width="424" height="491" key="FileChooserDialogImpl" timestamp="1603448072563">
       <screen x="1366" y="0" width="1920" height="1200" />
     </state>
-    <state x="2109" y="358" width="424" height="491" key="FileChooserDialogImpl/46.27.1320.741/1366.0.1920.1200@1366.0.1920.1200" timestamp="1598438322921" />
-    <state x="1815" y="235" width="1022" height="737" key="SettingsEditor" timestamp="1597041440494">
+    <state x="2109" y="358" key="FileChooserDialogImpl/0.690.1366.768/1366.0.1920.1200@1366.0.1920.1200" timestamp="1603448072563" />
+    <state x="2109" y="358" width="424" height="491" key="FileChooserDialogImpl/46.27.1320.741/1366.0.1920.1200@1366.0.1920.1200" timestamp="1599123457147" />
+    <state x="1815" y="235" width="1022" height="737" key="SettingsEditor" timestamp="1599037686685">
       <screen x="1366" y="0" width="1920" height="1200" />
     </state>
-    <state x="1815" y="235" width="1022" height="737" key="SettingsEditor/46.27.1320.741/1366.0.1920.1200@1366.0.1920.1200" timestamp="1597041440494" />
-    <state x="1921" y="332" width="800" height="543" key="Vcs.Push.Dialog.v2" timestamp="1598952088634">
+    <state x="1815" y="235" width="1022" height="737" key="SettingsEditor/46.27.1320.741/1366.0.1920.1200@1366.0.1920.1200" timestamp="1599037686685" />
+    <state x="1921" y="332" width="800" height="543" key="Vcs.Push.Dialog.v2" timestamp="1599037698637">
       <screen x="1366" y="0" width="1920" height="1200" />
     </state>
-    <state x="1921" y="332" width="800" height="543" key="Vcs.Push.Dialog.v2/46.27.1320.741/1366.0.1920.1200@1366.0.1920.1200" timestamp="1598952088634" />
+    <state x="1921" y="332" width="800" height="543" key="Vcs.Push.Dialog.v2/46.27.1320.741/1366.0.1920.1200@1366.0.1920.1200" timestamp="1599037698637" />
   </component>
 </project>
