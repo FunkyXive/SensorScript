@@ -83,4 +83,5 @@ except Exception as e:  # restarts the raspberry pi on all other exceptions
     r = requests.post(url, json={"Error": str(e), "zone": zone, "name": name})
     print(r.status_code)
     print("posted")
+    print(e)
     os.system('sudo reboot')
