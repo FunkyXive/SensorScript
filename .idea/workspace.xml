@@ -24,10 +24,7 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b2497ca7-7cbc-4dfb-91a6-8f6c5b152b83" name="Default Changelist" comment="updated static check function">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sensorscripts.iml" beforeDir="false" />
+    <list default="true" id="b2497ca7-7cbc-4dfb-91a6-8f6c5b152b83" name="Default Changelist" comment="included error code print in exception handling">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SensorScript.py" beforeDir="false" afterPath="$PROJECT_DIR$/SensorScript.py" afterDir="false" />
     </list>
@@ -304,7 +301,28 @@
       <option name="project" value="LOCAL" />
       <updated>1599037587749</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="updated static check function">
+      <created>1605613146042</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1605613146042</updated>
+    </task>
+    <task id="LOCAL-00024" summary="working with better error handling">
+      <created>1605613808299</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1605613808299</updated>
+    </task>
+    <task id="LOCAL-00025" summary="included error code print in exception handling">
+      <created>1605615157656</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1605615157656</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -331,7 +349,9 @@
     <MESSAGE value="updated the sensorscript to only send data when there's a change in temperature in a certain time of day as well as first in the morning" />
     <MESSAGE value="added static checks at 8 12 and 15" />
     <MESSAGE value="updated static check function" />
-    <option name="LAST_COMMIT_MESSAGE" value="updated static check function" />
+    <MESSAGE value="working with better error handling" />
+    <MESSAGE value="included error code print in exception handling" />
+    <option name="LAST_COMMIT_MESSAGE" value="included error code print in exception handling" />
   </component>
   <component name="WindowStateProjectService">
     <state x="2109" y="358" width="424" height="491" key="FileChooserDialogImpl" timestamp="1603448072563">
@@ -343,9 +363,10 @@
       <screen x="1366" y="0" width="1920" height="1200" />
     </state>
     <state x="1815" y="235" width="1022" height="737" key="SettingsEditor/46.27.1320.741/1366.0.1920.1200@1366.0.1920.1200" timestamp="1599037686685" />
-    <state x="1921" y="332" width="800" height="543" key="Vcs.Push.Dialog.v2" timestamp="1599037698637">
+    <state x="1921" y="332" width="800" height="543" key="Vcs.Push.Dialog.v2" timestamp="1605615164978">
       <screen x="1366" y="0" width="1920" height="1200" />
     </state>
+    <state x="1921" y="332" width="800" height="543" key="Vcs.Push.Dialog.v2/0.690.1366.768/1366.0.1920.1200@1366.0.1920.1200" timestamp="1605615164978" />
     <state x="1921" y="332" width="800" height="543" key="Vcs.Push.Dialog.v2/46.27.1320.741/1366.0.1920.1200@1366.0.1920.1200" timestamp="1599037698637" />
   </component>
 </project>

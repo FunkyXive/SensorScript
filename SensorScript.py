@@ -59,8 +59,7 @@ try:  # try except so we restart the raspberry pi if the program crashes
                 lastCheck = time.time()  # updates the lastCheck variable to the new time
                 h, t = DHT.read_retry(sensor,
                                       pin)  # reads humidity and temperature from sensor, retries up to 15 times if it fails
-                if abs(
-                        t - lastTemp) > temperatureDeviance or initialCheck:  # checks if the difference between the current temp and last temp is more than the set deviance threshold, if it is then it sends data, if not it prints the temp difference
+                if abs(t - lastTemp) > temperatureDeviance or initialCheck:  # checks if the difference between the current temp and last temp is more than the set deviance threshold, if it is then it sends data, if not it prints the temp difference
                     initialCheck = False  # sets initialCheck to false so we don't spam the server
                     print(f"Temperature: {t}*C, Humidity: {h}%")  # prints the data for testing and monitoring purposes
                     r = requests.post(url, json={"ipaddress": ip, "zone": zone, "name": name,
@@ -79,9 +78,10 @@ try:  # try except so we restart the raspberry pi if the program crashes
 
 except (KeyboardInterrupt, SystemExit):  # makes it so the pi doesn't restart at the exceptions specified
     raise
-except Exception as e:  # restarts the raspberry pi on all other exceptions
-    r = requests.post(url, json={"Error": str(e), "zone": zone, "name": name})
-    print(r.status_code)
-    print("posted")
-    print(e)
-    os.system('sudo reboot')
+except Exception as e:  # restarts the raspberry pi on all other exceptions and saves the exception in e
+    r = requests.post(url, json={"Error": str(e), "zone": zone, "name": name}) #posts error information to our server
+    print(r.status_code) #prints the status code of the above request
+    print("posted") #prints "posted"
+    print(e) #prints the exception to our console for debugging purposes
+    time.sleep(5)
+    os.system('sudo reboot') #reboot system command
