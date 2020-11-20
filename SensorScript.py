@@ -21,13 +21,14 @@ ip = [l for l in ([ip for ip in socket.gethostbyname_ex(socket.gethostname())[2]
 
 hostname = socket.gethostname()  # gets the host name of the device the script is running on
 hostname = hostname.split("-")  # splits the hostname at "-" and converts it to a list
-name = hostname[0]  # takes the first entry from the list and stores it as name
-zone = int(hostname[1])  # stores the second entry in the list as an int
-url = "http://infotavle.itd-skp.sde.dk/TH_API/ClimateSensor_Api/api/climateSensor/create.php"  # url of our api
+name = hostname[0]  # takes the first entry from the list and stores it as name, this is usually the building identifier
+zone = int(hostname[1])  # stores the second entry in the list as an int, this is usually the zone identifier
+# the above two variables then gives us a way to identify each sensor, fx: mu1a-7 would be building 1a zone 7
+url = "http://infotavle.itd-skp.sde.dk/TH_API/ClimateSensor_Api/api/climateSensor/create.php"  # urlL of our api
 pin = 4  # the io pin on our raspberry pi that is connected to the data pin on the DHT22
 lastCheck = time.time()  # set's the initial last check time
 sensorStartHour = 6  # the hour to start sensors
-sensorEndHour = 18  # the end for the sensors
+sensorEndHour = 18  # the end hour for the sensors
 initialCheck = True  # sets initial-check to true so we get first reading immediately
 sensor = DHT.DHT22  # defines which sensor of the supported sensors that we are using
 temperatureDeviance = 0.5  # variable controlling how much the temperature needs to change each check

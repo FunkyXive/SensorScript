@@ -1,4 +1,5 @@
 # /usr/bin/python
+### atm this is an unused script that used to be in use in the SDE server room where more than one sensor was attached to a raspberrypi and i had to modify the script a bit
 import datetime  # datetime import for time stamps in the http post request
 import requests  # request import for the http post request to our webserver via the Api
 import time  # time import for the regulation of data checks from the sensors

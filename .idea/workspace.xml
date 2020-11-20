@@ -25,7 +25,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b2497ca7-7cbc-4dfb-91a6-8f6c5b152b83" name="Default Changelist" comment="included error code print in exception handling">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SensorScript.py" beforeDir="false" afterPath="$PROJECT_DIR$/SensorScript.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -322,7 +321,14 @@
       <option name="project" value="LOCAL" />
       <updated>1605615157656</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="included error code print in exception handling">
+      <created>1605787231748</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1605787231748</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -363,9 +369,10 @@
       <screen x="1366" y="0" width="1920" height="1200" />
     </state>
     <state x="1815" y="235" width="1022" height="737" key="SettingsEditor/46.27.1320.741/1366.0.1920.1200@1366.0.1920.1200" timestamp="1599037686685" />
-    <state x="1921" y="332" width="800" height="543" key="Vcs.Push.Dialog.v2" timestamp="1605615164978">
-      <screen x="1366" y="0" width="1920" height="1200" />
+    <state x="395" y="420" width="800" height="543" key="Vcs.Push.Dialog.v2" timestamp="1605787236317">
+      <screen x="0" y="690" width="1366" height="768" />
     </state>
+    <state x="395" y="420" key="Vcs.Push.Dialog.v2/0.690.1366.768/1366.0.1920.1200@0.690.1366.768" timestamp="1605787236317" />
     <state x="1921" y="332" width="800" height="543" key="Vcs.Push.Dialog.v2/0.690.1366.768/1366.0.1920.1200@1366.0.1920.1200" timestamp="1605615164978" />
     <state x="1921" y="332" width="800" height="543" key="Vcs.Push.Dialog.v2/46.27.1320.741/1366.0.1920.1200@1366.0.1920.1200" timestamp="1599037698637" />
   </component>
