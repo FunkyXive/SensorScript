@@ -35,7 +35,7 @@ else:
         print("Restarting...")
         time.sleep(2)
         os.system("sudo reboot")
-    elif amountOfSensors == "2":  # if 2 we get the one made for 2
+    elif amountOfSensors == "2":  # if 2 we get the script made for 2
         os.system("sudo apt install python3-pip")
         os.system("sudo pip3 install Adafruit_DHT")
         with open("/etc/profile", "a+") as f:

@@ -46,6 +46,7 @@ def staticCheck(currentTime, checkHour, checkMinute): #function for preset stati
                                      "humidity": h})  # posting the data as json to our api via the url
         print(r.status_code)  # prints the status code of the post request 201 for success
         print(f"posted static {checkHour}")#prints to the pi that this specific post was static and the current hour
+        lastHum, lastTemp = h, t  # sets the last check temp and hum
         if r.status_code == 201: #checks if the post request was succesful
             time.sleep(300)#if yes, sleeps for 1 minute and 1 second as to not post the same data twice in one static check call
 try:  # try except so we restart the raspberry pi if the program crashes
