@@ -61,7 +61,7 @@ try:  # try except so we restart the raspberry pi if the program crashes
                 lastCheck = time.time()  # updates the lastCheck variable to the new time
                 h, t = DHT.read_retry(sensor,
                                       pin)  # reads humidity and temperature from sensor, retries up to 15 times if it fails
-                if abs(t - lastTemp) > temperatureDeviance or initialCheck:  # checks if the difference between the current temp and last temp is more than the set deviance threshold, if it is then it sends data, if not it prints the temp difference
+                if abs(t - lastTemp) >= temperatureDeviance or initialCheck:  # checks if the difference between the current temp and last temp is more than the set deviance threshold, if it is then it sends data, if not it prints the temp difference
                     initialCheck = False  # sets initialCheck to false so we don't spam the server
                     print(f"Temperature: {t}*C, Humidity: {h}%")  # prints the data for testing and monitoring purposes
                     r = requests.post(url, json={"ipaddress": ip, "zone": zone, "name": name,
