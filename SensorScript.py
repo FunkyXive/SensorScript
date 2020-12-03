@@ -81,7 +81,7 @@ try:  # try except so we restart the raspberry pi if the program crashes
 except (KeyboardInterrupt, SystemExit):  # makes it so the pi doesn't restart at the exceptions specified
     raise
 except Exception as e:  # restarts the raspberry pi on all other exceptions and saves the exception in e
-    r = requests.post(url, json={"Error": str(e), "zone": zone, "name": name}) #posts error information to our server
+    r = requests.post(url, json={"Error": str(e), "zone": zone, "name": name, "errorTime": str(datetime.datetime.now())}) #posts error information to our server
     print(r.status_code) #prints the status code of the above request
     print("posted") #prints "posted"
     print(e) #prints the exception to our console for debugging purposes
