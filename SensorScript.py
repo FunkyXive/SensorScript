@@ -35,25 +35,39 @@ temperatureDeviance = 0.5  # variable controlling how much the temperature needs
 lastHum, lastTemp = 1, 1  # random base value for last check that makes the sensor always send when started up
 
 
-def staticCheck(currentTime, checkHour, checkMinute): #function for preset static checks at the same time every day
-    if currentTime.hour == checkHour and currentTime.minute == checkMinute: #checks if we are at the entered hour and minute
+def saveToLog(postStatusCode, message): #function to write to local log file
+    with open('log.txt', 'a+') as f:    #opens our log file, creating it if it doesn't exist , using with open to automatically close the file when we're done using it
+        f.write(f"{datetime.datetime.now()} posted:{message}, status code: {postStatusCode}\n") #we write to the file the current time, then the message and the statuscode of a post
+        if len(open('log.txt').readlines()) >= 10: #check if log file is longer than a certain amount,
+            print("file longer than 10 lines, deleting first line") #prints that the file is longer
+            os.system(r'echo "$(tail -n +2 log.txt)" > log.txt') #deletest the first line of the file aka the oldest to reduce file size and maintenece
+
+
+def staticCheck(currentTime, checkHour, checkMinute):  # function for preset static checks at the same time every day
+    if currentTime.hour == checkHour and currentTime.minute == checkMinute:  # checks if we are at the entered hour and minute
         h, t = DHT.read_retry(sensor,
                               pin)  # reads humidity and temperature from sensor, retries up to 15 times if it fails
         print(f"Temperature: {t}*C, Humidity: {h}%")  # prints the data for testing and monitoring purposes
-        r = requests.post(url, json={"ipaddress": ip, "zone": zone, "name": name,
+        r = requests.post(url, json={"ipaddress": ip,
+                                     "zone": zone,
+                                     "name": name,
                                      "updated": str(datetime.datetime.now()),
                                      "temperature": t,
                                      "humidity": h})  # posting the data as json to our api via the url
         print(r.status_code)  # prints the status code of the post request 201 for success
-        print(f"posted static {checkHour}")#prints to the pi that this specific post was static and the current hour
+        saveToLog(r.status_code, t) #save to log
+        print(f"posted static {checkHour}")  # prints to the pi that this specific post was static and the current hour
         lastHum, lastTemp = h, t  # sets the last check temp and hum
-        if r.status_code == 201: #checks if the post request was succesful
-            time.sleep(300)#if yes, sleeps for 1 minute and 1 second as to not post the same data twice in one static check call
+        if r.status_code == 201:  # checks if the post request was succesful
+            time.sleep(
+                300)  # if yes, sleeps for 1 minute and 1 second as to not post the same data twice in one static check call
+
+
 try:  # try except so we restart the raspberry pi if the program crashes
     while True:  # main data loop
         currentTime = datetime.datetime.now()  # gets the current time
         hour = currentTime.hour  # gets the current hour 0-23
-        staticCheck(currentTime, 8, 0) #static check at hour 8 minute 0 aka 8 am
+        staticCheck(currentTime, 8, 0)  # static check at hour 8 minute 0 aka 8 am
         staticCheck(currentTime, 12, 0)
         staticCheck(currentTime, 15, 0)
         if sensorStartHour <= hour <= sensorEndHour:  # checks if current hour is between start hour and end hour, if true, run hour script, if not don't
@@ -61,14 +75,18 @@ try:  # try except so we restart the raspberry pi if the program crashes
                 lastCheck = time.time()  # updates the lastCheck variable to the new time
                 h, t = DHT.read_retry(sensor,
                                       pin)  # reads humidity and temperature from sensor, retries up to 15 times if it fails
-                if abs(t - lastTemp) >= temperatureDeviance or initialCheck:  # checks if the difference between the current temp and last temp is more than the set deviance threshold, if it is then it sends data, if not it prints the temp difference
+                if abs(
+                        t - lastTemp) >= temperatureDeviance or initialCheck:  # checks if the difference between the current temp and last temp is more than the set deviance threshold, if it is then it sends data, if not it prints the temp difference
                     initialCheck = False  # sets initialCheck to false so we don't spam the server
                     print(f"Temperature: {t}*C, Humidity: {h}%")  # prints the data for testing and monitoring purposes
-                    r = requests.post(url, json={"ipaddress": ip, "zone": zone, "name": name,
+                    r = requests.post(url, json={"ipaddress": ip,
+                                                 "zone": zone,
+                                                 "name": name,
                                                  "updated": str(datetime.datetime.now()),
                                                  "temperature": t,
                                                  "humidity": h})  # posting the data as json to our api via the url
                     print(r.status_code)  # prints the status code of the post request 201 for success
+                    saveToLog(r.status_code, t) #saves to log
                     lastHum, lastTemp = h, t  # sets the last check temp and hum
                     print("posted")
                 else:
@@ -81,9 +99,11 @@ try:  # try except so we restart the raspberry pi if the program crashes
 except (KeyboardInterrupt, SystemExit):  # makes it so the pi doesn't restart at the exceptions specified
     raise
 except Exception as e:  # restarts the raspberry pi on all other exceptions and saves the exception in e
-    r = requests.post(url, json={"Error": str(e), "zone": zone, "name": name, "errorTime": str(datetime.datetime.now())}) #posts error information to our server
-    print(r.status_code) #prints the status code of the above request
-    print("posted") #prints "posted"
-    print(e) #prints the exception to our console for debugging purposes
+    r = requests.post(url, json={"Error": str(e), "zone": zone, "name": name,
+                                 "errorTime": str(datetime.datetime.now())})  # posts error information to our server
+    print(r.status_code)  # prints the status code of the above request
+    saveToLog(r.status_code, e) #saves to log
+    print("posted")  # prints "posted"
+    print(e)  # prints the exception to our console for debugging purposes
     time.sleep(5)
-    os.system('sudo reboot') #reboot system command
+    os.system('sudo reboot')  # reboot system command
