@@ -35,12 +35,25 @@ temperatureDeviance = 0.5  # variable controlling how much the temperature needs
 lastHum, lastTemp = 1, 1  # random base value for last check that makes the sensor always send when started up
 
 
-def saveToLog(postStatusCode, message): #function to write to local log file
-    with open('log.txt', 'a+') as f:    #opens our log file, creating it if it doesn't exist , using with open to automatically close the file when we're done using it
-        f.write(f"{datetime.datetime.now()} posted:{message}, status code: {postStatusCode}\n") #we write to the file the current time, then the message and the statuscode of a post
-        if len(open('log.txt').readlines()) >= 10: #check if log file is longer than a certain amount,
-            print("file longer than 10 lines, deleting first line") #prints that the file is longer
-            os.system(r'echo "$(tail -n +2 log.txt)" > log.txt') #deletest the first line of the file aka the oldest to reduce file size and maintenece
+def saveToLog(postStatusCode, message, errorLog=False):  # function to write to local log file
+    if errorLog:  # checks if errorLog is true, if so we write to a seperate file from regular log
+        with open('errorLog.txt',
+                  'a+') as f:  # opens our log file, creating it if it doesn't exist , using with open to automatically close the file when we're done using it
+            f.write(
+                f"{datetime.datetime.now()} posted:{message}, status code: {postStatusCode}\n")  # we write to the file the current time, then the message and the statuscode of a post
+            if len(open('errorLog.txt').readlines()) >= 10:  # check if log file is longer than a certain amount,
+                print("ErrorLog file longer than 10 lines, deleting first line")  # prints that the file is longer
+                os.system(
+                    r'echo "$(tail -n +2 errorLog.txt)" > errorLog.txt')  # deletest the first line of the file aka the oldest to reduce file size and maintenece
+    else:  # if errorLog is false do the regular logging
+        with open('log.txt',
+                  'a+') as f:  # opens our log file, creating it if it doesn't exist , using with open to automatically close the file when we're done using it
+            f.write(
+                f"{datetime.datetime.now()} posted:{message}, status code: {postStatusCode}\n")  # we write to the file the current time, then the message and the statuscode of a post
+            if len(open('log.txt').readlines()) >= 10:  # check if log file is longer than a certain amount,
+                print("file longer than 10 lines, deleting first line")  # prints that the file is longer
+                os.system(
+                    r'echo "$(tail -n +2 log.txt)" > log.txt')  # deletest the first line of the file aka the oldest to reduce file size and maintenece
 
 
 def staticCheck(currentTime, checkHour, checkMinute):  # function for preset static checks at the same time every day
@@ -55,7 +68,7 @@ def staticCheck(currentTime, checkHour, checkMinute):  # function for preset sta
                                      "temperature": t,
                                      "humidity": h})  # posting the data as json to our api via the url
         print(r.status_code)  # prints the status code of the post request 201 for success
-        saveToLog(r.status_code, t) #save to log
+        saveToLog(r.status_code, t)  # save to log
         print(f"posted static {checkHour}")  # prints to the pi that this specific post was static and the current hour
         lastHum, lastTemp = h, t  # sets the last check temp and hum
         if r.status_code == 201:  # checks if the post request was succesful
@@ -86,7 +99,7 @@ try:  # try except so we restart the raspberry pi if the program crashes
                                                  "temperature": t,
                                                  "humidity": h})  # posting the data as json to our api via the url
                     print(r.status_code)  # prints the status code of the post request 201 for success
-                    saveToLog(r.status_code, t) #saves to log
+                    saveToLog(r.status_code, t)  # saves to log
                     lastHum, lastTemp = h, t  # sets the last check temp and hum
                     print("posted")
                 else:
@@ -102,7 +115,7 @@ except Exception as e:  # restarts the raspberry pi on all other exceptions and 
     r = requests.post(url, json={"Error": str(e), "zone": zone, "name": name,
                                  "errorTime": str(datetime.datetime.now())})  # posts error information to our server
     print(r.status_code)  # prints the status code of the above request
-    saveToLog(r.status_code, e) #saves to log
+    saveToLog(r.status_code, e, errorLog=True)  # saves to log
     print("posted")  # prints "posted"
     print(e)  # prints the exception to our console for debugging purposes
     time.sleep(5)
