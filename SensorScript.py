@@ -4,7 +4,7 @@ import requests  # import for posting to the api
 import time  # import for keeping data checks regular
 import os  # import for making system commands
 import socket  # import for getting hostname and ip
-
+import subprocess #import for making system commands
 imported = False
 while not imported:  # The Adafruit_DHT module is sometimes not getting imported and will then crash the program, this is to ensure that we import it
     try:
@@ -83,6 +83,23 @@ try:  # try except so we restart the raspberry pi if the program crashes
         static_check(current_time, 8, 0)  # static check at hour 8 minute 0 aka 8 am
         static_check(current_time, 12, 0)
         static_check(current_time, 15, 0)
+
+        # Read uptime of current session
+        out = subprocess.run(['uptime', '-s'], stdout=subprocess.PIPE).stdout.decode('utf-8').rstrip("\n")
+
+        # Read current time
+        now = datetime.datetime.now()
+
+        # Format session start
+        session_start = datetime.datetime.strptime(out, "%Y-%m-%d %H:%M:%S")
+
+        # Time since start of session in days
+        delta = (now - session_start).days
+
+        # If session started 6 days ago then reboot system
+        if delta == 6:
+            os.system('reboot')
+
         if sensorStartHour <= hour <= sensorEndHour:  # checks if current hour is between start hour and end hour, if true, run hour script, if not don't
             if time.time() - lastCheck >= 60 or initialCheck:  # checks if 1(60seconds) minutes has passed since last check or if this is the first check since we started the program
                 lastCheck = time.time()  # updates the lastCheck variable to the new time
